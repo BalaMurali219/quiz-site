@@ -1,4 +1,5 @@
-fetch("starter-code/data.json")
+/* fetch Json data */
+fetch("data.json")
   .then((response) => response.json())
   .then((data) => {
     const quizzes = data.quizzes;
@@ -8,6 +9,7 @@ fetch("starter-code/data.json")
     console.error("Error fetching JSON:", error);
   });
 
+/* select necessary html elements */
 const storedQuizzes = localStorage.getItem("quizzes");
 const quizzes = JSON.parse(storedQuizzes);
 const menuButtons = document.querySelectorAll(".menu-button");
@@ -15,7 +17,9 @@ const menuContainer = document.querySelector("#menu-container");
 const questionContainer = document.querySelector("#question-container");
 const completedContainer = document.querySelector("#completed-container");
 const questionElement = questionContainer.querySelector("#question");
-const questionNumberElement = questionContainer.querySelector("#current-question-number");
+const questionNumberElement = questionContainer.querySelector(
+  "#current-question-number"
+);
 const answerButtons = questionContainer.querySelectorAll(".answer-button");
 const submitButton = document.querySelector("#submit-button");
 const errorMessage = questionContainer.querySelector("#error-message");
@@ -85,17 +89,23 @@ var handleSubmitButtonClick = (e) => {
   ) {
     selectedButton.classList.add("correct");
     score++;
-    selectedButton.innerHTML += `<img class = "answer-icon"
-              src="starter-code/assets/images/icon-correct.svg"
-              alt="correct icon"/>`;
+    selectedButton.innerHTML += `<img
+             class = "answer-icon"
+              src="icon-correct.svg"
+              alt="correct icon"
+            />`;
   } else {
     selectedButton.classList.add("wrong");
-    selectedButton.innerHTML += `<img class = "answer-icon"
-              src="starter-code/assets/images/icon-incorrect.svg"
-              alt="incorrect icon"/>`;
-    correctAnswerButton.innerHTML += `<img class = "answer-icon"
-              src="starter-code/assets/images/icon-correct.svg"
-              alt="correct icon"/>`;
+    selectedButton.innerHTML += `<img
+             class = "answer-icon"
+              src="icon-incorrect.svg"
+              alt="incorrect icon"
+            />`;
+    correctAnswerButton.innerHTML += `<img
+             class = "answer-icon"
+              src="icon-correct.svg"
+              alt="correct icon"
+            />`;
   }
   console.log(score);
   disableButtons();
@@ -134,9 +144,9 @@ var handleMenuButtonClick = (e) => {
     currentQuiz = quizzes[1];
   } else if (type === "JavaScript") {
     currentQuiz = quizzes[2];
-  } else if (type === "Python") {
+  } else if (type === "Accessibility") {
     currentQuiz = quizzes[3];
-  } 
+  }
 
   gameModeIcon.setAttribute("src", currentQuiz.icon);
   gameModeIconWrapper.classList.add(currentQuiz.title);
@@ -146,6 +156,7 @@ var handleMenuButtonClick = (e) => {
 };
 
 var questionNumber = 0;
+
 var handleEndOfQuiz = () => {
   completedContainer.classList.remove("hidden");
   questionContainer.classList.add("hidden");
@@ -153,7 +164,9 @@ var handleEndOfQuiz = () => {
 
   const resultContainer = document.querySelector(".result-container");
 
-  const gameModeDetails = resultContainer.querySelector(".game-details-container");
+  const gameModeDetails = resultContainer.querySelector(
+    ".game-details-container"
+  );
   const gameModeIconWrapper = gameModeDetails.querySelector(".image-wrapper");
 
   const gameModeIcon = gameModeIconWrapper.querySelector(".game-mode-icon");
@@ -202,7 +215,7 @@ submitButton.addEventListener("click", handleSubmitButtonClick);
 
 playAgainButton.addEventListener("click", handlePlayAgainButton);
 
-/* Theme Buttons*/
+/* Hanlding Theme Button*/
 const themeButton = document.querySelector("#toggle-button");
 var handleThemeButton = () => {
   const ball = themeButton.querySelector("#ball");
@@ -212,11 +225,11 @@ var handleThemeButton = () => {
   const sunElement = document.querySelector("#sun");
   const moonElement = document.querySelector("#moon");
 
-  const sunDark = "starter-code/assets/images/icon-sun-dark.svg";
-  const moonDark = "starter-code/assets/images/icon-moon-dark.svg";
+  const sunDark = "icon-sun-dark.svg";
+  const moonDark = "icon-moon-dark.svg";
 
-  const sunLight = "starter-code/assets/images/icon-sun-light.svg";
-  const moonLight = "starter-code/assets/images/icon-moon-light.svg";
+  const sunLight = "icon-sun-light.svg";
+  const moonLight = "icon-moon-light.svg";
 
   if (sunElement.src.endsWith(sunDark)) {
     sunElement.src = sunLight;
@@ -239,3 +252,5 @@ var handleThemeButton = () => {
 };
 
 themeButton.addEventListener("click", handleThemeButton);
+
+/* handling content-container */
