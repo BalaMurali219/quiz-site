@@ -1,14 +1,14 @@
 @font-face {
   font-family: "Rubik-Medium";
-  src: url("/starter-code/assets/fonts/static/Rubik-Medium.ttf");
+  src: url("Rubik-Medium.ttf");
 }
 @font-face {
   font-family: "Rubik-Regular";
-  src: url("/starter-code/assets/fonts/static/Rubik-Regular.ttf");
+  src: url("Rubik-Regular.ttf");
 }
 @font-face {
   font-family: "Rubik-Italic";
-  src: url(/starter-code/assets/fonts/static/Rubik-Italic.ttf);
+  src: url("Rubik-Italic.ttf");
 }
 :root {
   --color-purple: #a729f5;
@@ -39,13 +39,13 @@
   display: none !important;
 }
 body {
-  background-image: url("starter-code/assets/images/pattern-background-mobile-light.svg");
+  background-image: url("pattern-background-mobile-light.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: var(--color-lightGrey);
 }
 body.dark-theme {
-  background-image: url("starter-code/assets/images/pattern-background-mobile-dark.svg");
+  background-image: url("pattern-background-mobile-dark.svg");
   background-color: var(--color-darkGrey);
 }
 .theme-container {
@@ -308,10 +308,10 @@ h3 > strong.dark-theme {
 /* tablet screen */
 @media screen and (min-width: 768px) {
   body {
-    background-image: url("starter-code/assets/images/pattern-background-tablet-light.svg");
+    background-image: url("pattern-background-tablet-light.svg");
   }
   body.dark-theme {
-    background-image: url("starter-code/assets/images/pattern-background-tablet-dark.svg");
+    background-image: url("pattern-background-tablet-dark.svg");
   }
   section {
     padding: 64px 48px 0 48px;
@@ -328,13 +328,13 @@ h3 > strong.dark-theme {
 /* desktop screen */
 @media screen and (min-width: 1024px) {
   body {
-    background-image: url("starter-code/assets/images/pattern-background-desktop-light.svg");
+    background-image: url("pattern-background-desktop-light.svg");
     display: flex;
     flex-direction: column;
     min-width: max-content;
   }
   body.dark-theme {
-    background-image: url("starter-code/assets/images/pattern-background-desktop-dark.svg");
+    background-image: url("pattern-background-desktop-dark.svg");
   }
   section {
     padding: 0px 114px 0 114px;
